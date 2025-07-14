@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 # Cloud SQL Connector
 def connect_with_connector() -> sqlalchemy.engine.base.Engine:
-    instance_connection_name = os.environ["INSTANCE_CONNECTION_NAME"] # e.g. 'project:region:instance'
-    db_user = os.environ["DB_USER"]
-    db_pass = os.environ["DB_PASS"]
-    db_name = os.environ["DB_NAME"]
+    instance_connection_name = os.environ["INSTANCE_CONNECTION_NAME"] # e.g. 'project:region:instance'#
+# db_user = os.environ["DB_USER"]
+   # db_pass = os.environ["DB_PASS"]
+   # db_name = os.environ["DB_NAME"]
 
     from google.cloud.sql.connector import Connector
     connector = Connector()
@@ -19,9 +19,9 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
         conn = connector.connect(
             instance_connection_name,
             "pg8000",
-            user=db_user,
-            password=db_pass,
-            db=db_name,
+            user="htiwary7",
+            password="htiwarydbpassword",
+            db="postgress",
         )
         return conn
 
