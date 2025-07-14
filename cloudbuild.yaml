@@ -96,7 +96,7 @@ steps:
       - '-c'
       - |
         PROJECTS_API_URL=$$(gcloud run services describe projects-api --platform=managed --region=${_REGION} --format='value(status.url)') && \
-        IMAGE_API_URL=$$(gcloud run services describe image-api --platform=managed --region=${_REGION} --format='value(status.url)') && \
+        IMAGE_API_URL=$$(gcloud run services describe images-api --platform=managed --region=${_REGION} --format='value(status.url)') && \
         gcloud run deploy frontend-service \
           --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/frontend-service:$SHORT_SHA \
           --region=${_REGION} \
@@ -107,7 +107,7 @@ steps:
 # Push all images to Artifact Registry
 images:
   - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/projects-api:$SHORT_SHA'
-  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/image-api:$SHORT_SHA'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/images-api:$SHORT_SHA'
   - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/frontend-service:$SHORT_SHA'
 options:
   logging: CLOUD_LOGGING_ONLY
