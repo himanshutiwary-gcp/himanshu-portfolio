@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Tiwary | Subject Matter Expert - GCP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Himanshu Tiwary</h1>
+            <p>Subject Matter Expert - GCP | Cloud Architect | DevOps & Networking Specialist</p>
+        </div>
+    </header>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Highly skilled Cloud Engineer specialized in Google Cloud Platform with 4 years of proven experience in designing, proposing, and delivering robust cloud solutions. This portfolio itself is a live demonstration of these skills, running as a microservices application on Cloud Run, with data served from Cloud SQL, and deployed via a fully automated GitHub Actions CI/CD pipeline.</p>
+        </section>
+        <section id="projects">
+            <h2>Core Projects & Expertise</h2>
+            <div class="project-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <img src="{{ image_service_url }}/images/{{ project.image_name }}" alt="{{ project.title }}">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="tech-stack"><strong>Tech:</strong> {{ project.tech_stack }}</div>
+                </div>
+                {% else %}
+                <p>Could not load project data. The Projects API might be unavailable.</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/himanshutiwary" target="_blank">LinkedIn</a> &bull; <a href="https://github.com/[YOUR_GITHUB_USERNAME]" target="_blank">GitHub</a></p>
+    </footer>
+</body>
+</html>
