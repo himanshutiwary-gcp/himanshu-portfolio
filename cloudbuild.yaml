@@ -22,13 +22,13 @@ steps:
     args:
       - 'build'
       - '-t'
-      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/image-api:$SHORT_SHA'
-      - './image-api'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/images-api:$SHORT_SHA'
+      - './images-api'
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push Image API'
     args:
       - 'push'
-      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/image-api:$SHORT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/images-api:$SHORT_SHA'
 
   # 3. Deploy the projects-api service. It depends on the DB credentials.
   # This service is internal-only (--no-allow-unauthenticated).
@@ -61,9 +61,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'image-api'
+      - 'images-api'
       - '--image'
-      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/image-api:$SHORT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/portfolio-repo/images-api:$SHORT_SHA'
       - '--region'
       - '${_REGION}'
       - '--platform'
