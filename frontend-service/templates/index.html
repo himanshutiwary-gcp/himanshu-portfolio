@@ -1,3 +1,47 @@
+**Defining the Task Scope**
+
+I'm now focused on precisely what's needed. First, I have to rebuild the `index.html` file. Then, I have to use the resume document as the core data source, which is already stored in context. I have been able to define all the core inputs.
+
+
+**Structuring HTML Elements**
+
+I'm outlining the `index.html` structure now, beginning with a `<body>` element. I'll map each resume section to HTML elements, ensuring the layout is semantic. This involves headings for each section (e.g., `<h2>` for "Experience") and appropriate tags for content, and making the "Projects" section dynamic.
+
+
+**Mapping Resume to HTML**
+
+I'm working through the resume section by section now, ensuring each gets a dedicated HTML element. The "Experience" section is a key focus; I'm planning nested elements: a `<section>`, a `<h2>` for the heading, and then `<article>` elements for each job, including headings, dates, and bullet points. I'm making sure the static content from the resume merges nicely with the dynamic content for the "Projects" section, which will also reside inside the `main` tag.
+
+
+**Mapping Remaining Resume Sections**
+
+I'm now focused on structuring the remaining sections. I'll follow a consistent pattern: `<section>` tags with appropriate `<h2>` headings. I'm planning separate sections for skills (nested `div` elements for categories), certifications, and achievements. The structure should be clean. I need to remember the `div`s for the skills section and use a similar layout for each.
+
+
+**Detailing Header and Main**
+
+I'm focusing on the initial HTML structure. The `<header>` will contain the name, title, and contact details, which I'll extract from the resume's OCR text and render. The `<main>` section will then house the remaining sections: overview, experience, skills, and so on.
+
+
+**Detailing the Experience Section**
+
+I'm now breaking down the "Experience" section in detail. This is where most of the static data from the resume needs to be integrated. I am planning to use `<article>` elements, each representing a job, with nested elements to clearly display the title, company, dates, and responsibilities, each in a bulleted list.
+
+
+**Planning HTML Structure**
+
+I'm now focusing on the HTML structure. I'm creating a well-defined outline, with a `<body>`, `<header>`, and `<main>` section containing appropriate tags for each resume element. This includes sections for experience, skills, and achievements.
+
+
+Of course. Here is a complete, production-ready `index.html` file that translates every section of Himanshu Tiwary's resume into a structured and well-formatted webpage.
+
+This version keeps the **dynamic project showcase** section you built, which fetches data from your backend API, and adds all the other resume sections (Experience, Skills, Certifications, etc.) as static HTML content. This creates a comprehensive and professional portfolio page.
+
+Simply replace the entire contents of your `frontend-service/templates/index.html` file with the code below.
+
+### **`frontend-service/templates/index.html` (Complete Resume Version)**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +51,74 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+    <!-- ====================================================== -->
+    <!-- HEADER SECTION                                         -->
+    <!-- ====================================================== -->
     <header>
         <div class="container">
             <h1>Himanshu Tiwary</h1>
             <p>Subject Matter Expert - GCP | Cloud Architect | DevOps & Networking Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:himanshutiwary666@gmail.com">himanshutiwary666@gmail.com</a> |
+                <a href="https://www.linkedin.com/in/himanshutiwary" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/[YOUR_GITHUB_USERNAME]" target="_blank">GitHub</a>
+            </div>
         </div>
     </header>
+
     <main class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Highly skilled Cloud Engineer specialized in Google Cloud Platform with 4 years of proven experience in designing, proposing, and delivering robust cloud solutions. This portfolio itself is a live demonstration of these skills, running as a microservices application on Cloud Run, with data served from Cloud SQL, and deployed via a fully automated GitHub Actions CI/CD pipeline.</p>
+
+        <!-- ====================================================== -->
+        <!-- OVERVIEW SECTION                                       -->
+        <!-- ====================================================== -->
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Highly skilled Cloud Engineer specialized in Google Cloud Platform with 4 years of proven experience in designing, proposing, and delivering robust cloud solutions. Adept at transforming complex customer requirements into secure, scalable, and high-performance distributed virtualized infrastructures. Seeking to leverage expertise in networking, DevOps, and cloud computing to accelerate client onboarding, optimize cloud investments, and serve as a trusted technical advisor in a dynamic, client-centric environment.</p>
         </section>
+
+        <!-- ====================================================== -->
+        <!-- EXPERIENCE SECTION (Static from Resume)              -->
+        <!-- ====================================================== -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <article class="job">
+                <div class="job-header">
+                    <h3>Cloud Architect | Project Nova</h3>
+                    <h4>Cognizant Technology Solutions</h4>
+                </div>
+                <p class="job-meta">Feb, 2025 - Present | Hyderabad, India</p>
+                <ul>
+                    <li>Led a team of 6 GCP Cloud Engineers, overseeing the end-to-end implementation and architectural adherence of intricate cloud solutions on Google Cloud Platform.</li>
+                    <li>Architected and designed robust, scalable, and secure cloud solutions, leveraging a comprehensive suite of GCP services including GKE, Cloud SQL, Firebase, and advanced networking components.</li>
+                    <li>Drove the adoption of Infrastructure as Code (IaC) with Terraform and Cloud Deployment Manager, streamlining CI/CD pipelines via Cloud Build and GitLab CI for scalable, automated, and efficient deployments.</li>
+                    <li>Collaborated cross-functionally with development, product, and operations teams to align cloud architecture with project goals, providing expert resolution for complex live production issues.</li>
+                    <li>Spearheaded the development and launch of an internal knowledge-sharing platform (Nova), fostering collaboration and showcasing architectural designs.</li>
+                </ul>
+            </article>
+
+            <article class="job">
+                <div class="job-header">
+                    <h3>GCP Cloud Engineer (SME) | Project Google Zelus</h3>
+                    <h4>Cognizant Technology Solutions (Client: Google Inc.)</h4>
+                </div>
+                <p class="job-meta">July, 2021 - Present | Hyderabad, India</p>
+                <ul>
+                    <li>Functioned as a Subject Matter Expert (SME) for Networking, providing advanced architectural consultation and technical guidance to Google Cloud customers on complex infrastructure challenges.</li>
+                    <li>Led a team of 30 Technical Support Representatives (TSRs), enhancing proficiency through comprehensive troubleshooting of GCP compute, storage, networking, and security services.</li>
+                    <li>Engineered and deployed resilient containerized workloads on GKE using Cloud Deployment Manager, Terraform, and ArgoCD, developing custom monitoring dashboards.</li>
+                    <li>Designed and implemented robust data migration and streaming pipelines from AWS to GCP via Data Migration Service and Datastream.</li>
+                    <li>Utilized advanced network diagnostics (packet analysis, load testing) to resolve intricate network performance issues and collaborated with Google Engineering/SREs to address critical bugs.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- LIVE PROJECTS SECTION (Dynamic from Backend API)     -->
+        <!-- ====================================================== -->
         <section id="projects">
-            <h2>Core Projects & Expertise</h2>
+            <h2>Live Project Showcase</h2>
+            <p>The projects below are served dynamically from a backend API and Cloud SQL database, demonstrating the microservices architecture of this portfolio site.</p>
             <div class="project-grid">
                 {% for project in projects %}
                 <div class="project-card">
@@ -29,13 +128,99 @@
                     <div class="tech-stack"><strong>Tech:</strong> {{ project.tech_stack }}</div>
                 </div>
                 {% else %}
-                <p>Could not load project data. The Projects API might be unavailable.</p>
+                <p>Could not load live project data. The Projects API might be unavailable.</p>
                 {% endfor %}
             </div>
         </section>
+
+        <!-- ====================================================== -->
+        <!-- SKILLS SECTION                                         -->
+        <!-- ====================================================== -->
+        <section id="skills">
+            <h2>Technical Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud Platforms & Architecture (GCP, AWS, Azure)</h3>
+                    <ul>
+                        <li><strong>Core GCP Services:</strong> GKE, Compute Engine, Cloud Run, App Engine, Cloud Functions, Cloud SQL, Cloud Storage, VPC, Load Balancers, Cloud DNS, Cloud NAT, Cloud Armor.</li>
+                        <li><strong>Networking & Security:</strong> Shared VPC, VPC Flow Logs, Cloud VPN, Interconnect, Cloud Router, CDN, CSM (Istio), Private Service Access, Secure Web Proxy, Certificate Manager.</li>
+                        <li><strong>Observability & Operations:</strong> Cloud Monitoring, Cloud Logging, Log Analytics, Log-based Alerts and Metrics.</li>
+                        <li><strong>Architectural Design:</strong> System Design, Distributed Virtualized Infrastructure, Production-Grade Systems, Customer-facing Migration (Discovery, Assessment, Planning, Execution).</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Automation</h3>
+                    <ul>
+                        <li><strong>CI/CD:</strong> Cloud Build, GitLab CI, GitHub Actions.</li>
+                        <li><strong>Infrastructure as Code (IaC):</strong> Terraform, Cloud Deployment Manager.</li>
+                        <li><strong>Containerization:</strong> Docker, Google Kubernetes Engine (GKE), GKE Networking, GKE Gateways/Ingress Controllers, Nginx, Dataplane V2 (Cilium), Calico.</li>
+                        <li><strong>Configuration Management:</strong> ArgoCD, Ansible, Chef, Puppet.</li>
+                        <li><strong>Scripting:</strong> Python, Bash/Shell Scripting.</li>
+                    </ul>
+                </div>
+                 <div class="skill-category">
+                    <h3>Databases & Technical Expertise</h3>
+                    <ul>
+                        <li><strong>Databases:</strong> MySQL, PostgreSQL, SQL Server, Redis, AlloyDB, Cloud Spanner.</li>
+                        <li><strong>Networking:</strong> Advanced TCP/IP Troubleshooting, Packet Capture (tcpdump), Packet Analysis, Firewalls (Palo Alto, FortiGate), Load Balancers, VPN, DNS.</li>
+                         <li><strong>Operating Systems:</strong> Linux (Troubleshooting, Large-Scale Environments), Windows.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
+        <!-- CERTIFICATIONS & ACHIEVEMENTS                          -->
+        <!-- ====================================================== -->
+        <div class="grid-2-col">
+            <section id="certifications">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Professional Cloud DevOps Engineer (Google Cloud)</li>
+                    <li>Professional Cloud Network Engineer (Google Cloud)</li>
+                    <li>Associate Cloud Engineer (Google Cloud)</li>
+                    <li>Python for Beginners: Learn Python Programming (Udemy)</li>
+                    <li>Terraform Beginner to Advanced - Using Google Cloud Platform (Udemy)</li>
+                </ul>
+            </section>
+
+            <section id="achievements">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>Best SME-GCP of the year 2024 & 2023</li>
+                    <li>Spot Award for identifying mistakes in Google Cloud official documentations (Feb 2023)</li>
+                    <li>Spot Award for identifying route outages in Jakarta region of Google Cloud (2023)</li>
+                    <li>Star Performer of the Month (June 2022)</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- ====================================================== -->
+        <!-- EDUCATION SECTION                                      -->
+        <!-- ====================================================== -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Technology - Computer Science and Engineering</h3>
+                <p>Asansol Engineering College, Asansol (2017 - 2021)</p>
+                <p>CGPA: 8.45</p>
+            </div>
+        </section>
+
     </main>
+
+    <!-- ====================================================== -->
+    <!-- FOOTER SECTION                                         -->
+    <!-- ====================================================== -->
     <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/himanshutiwary" target="_blank">LinkedIn</a> &bull; <a href="https://github.com/[YOUR_GITHUB_USERNAME]" target="_blank">GitHub</a></p>
+        <p>This portfolio is a live microservices application hosted on Google Cloud Run and deployed via a Cloud Build CI/CD pipeline.</p>
+        <p>Connect with me: 
+            <a href="https://www.linkedin.com/in/himanshutiwary" target="_blank">LinkedIn</a> &bull; 
+            <a href="https://github.com/[YOUR_GITHUB_USERNAME]" target="_blank">GitHub</a> &bull; 
+            <a href="mailto:himanshutiwary666@gmail.com">Email</a>
+        </p>
     </footer>
+
 </body>
 </html>
+```
