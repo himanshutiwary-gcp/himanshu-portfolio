@@ -16,8 +16,8 @@
     <!-- STICKY SIDEBAR                                         -->
     <!-- ====================================================== -->
     <aside class="sidebar">
-        <!-- Add a real photo of yourself named 'profile.jpg' in the static folder -->
-        <img src="https://via.placeholder.com/150" alt="Himanshu Tiwary" class="profile-img">
+        <!-- The 'url_for' function correctly generates the path to our static image -->
+        <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Himanshu Tiwary" class="profile-img">
         <h1>Himanshu Tiwary</h1>
         <p>GCP Subject Matter Expert</p>
         <nav>
