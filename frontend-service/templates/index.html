@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himanshu Tiwary | Subject Matter Expert - GCP</title>
-    <!-- Link to new CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,7 +14,6 @@
     <!-- STICKY SIDEBAR                                         -->
     <!-- ====================================================== -->
     <aside class="sidebar">
-        <!-- The 'url_for' function correctly generates the path to our static image -->
         <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Himanshu Tiwary" class="profile-img">
         <h1>Himanshu Tiwary</h1>
         <p>GCP Subject Matter Expert</p>
@@ -24,14 +21,14 @@
             <ul>
                 <li><a href="#overview"><i class="fas fa-user-circle"></i> Overview</a></li>
                 <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#projects"><i class="fas fa-cogs"></i> Live Projects</a></li>
+                <li><a href="#projects"><i class="fas fa-cogs"></i> Projects</a></li>
                 <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
                 <li><a href="#certs"><i class="fas fa-certificate"></i> Certifications</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
             <p>Portfolio built with:</p>
-            <p>Flask, Docker, GKE, Cloud Run, Cloud SQL, Cloud Build</p>
+            <p>Flask, Docker, Cloud Run, Cloud Build</p>
         </div>
     </aside>
 
@@ -54,7 +51,7 @@
 
         <!-- Experience Timeline Section -->
         <section id="experience" class="container fade-in">
-            <h2><i class="fas fa-briefcase"></i> Experience Timeline</h2>
+             <h2><i class="fas fa-briefcase"></i> Experience Timeline</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>Cloud Architect | Project Nova</h3>
@@ -78,24 +75,54 @@
             </div>
         </section>
 
-        <!-- Dynamic Live Projects Section -->
+
+        <!-- Dynamic Video Projects Section -->
         <section id="projects" class="container fade-in">
-            <h2><i class="fas fa-cogs"></i> Live Project Showcase</h2>
-            <p>The projects below are served dynamically from a backend API, demonstrating the microservices architecture of this portfolio site.</p>
+            <h2><i class="fas fa-cogs"></i> Project Showcase</h2>
             <div class="project-grid">
-                {% for project in projects %}
+                
+                <!-- Project 1 - Video -->
                 <div class="project-card">
-                    <img src="{{ image_service_url }}/images/{{ project.image_name }}" alt="{{ project.title }}">
-                    <h3>{{ project.title }}</h3>
-                    <p>{{ project.description }}</p>
-                    <div class="tech-stack"><strong>Tech:</strong> {{ project.tech_stack }}</div>
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline preload="metadata" loading="lazy">
+                            <source src="https://storage.googleapis.com/htiwary-portfolio/project11.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>Cloud Native CI/CD Pipeline</h3>
+                    <p>Architected a multi-service CI/CD pipeline using Cloud Build, Artifact Registry, and Cloud Run, showcasing IaC principles with Terraform.</p>
+                    <div class="tech-stack"><strong>Tech:</strong> GCP, Terraform, Cloud Build, GKE</div>
                 </div>
-                {% else %}
-                <p>Could not load live project data. The Projects API might be unavailable.</p>
-                {% endfor %}
+
+                <!-- Project 2 - Video -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline preload="metadata" loading="lazy">
+                            <source src="https://storage.googleapis.com/htiwary-portfolio/project2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>Hybrid Cloud Data Migration</h3>
+                    <p>Designed and implemented a data streaming solution from AWS to GCP using Datastream and Data Migration Service for a seamless transfer.</p>
+                    <div class="tech-stack"><strong>Tech:</strong> AWS, GCP, Datastream, Cloud SQL</div>
+                </div>
+
+                <!-- Project 3 - Video -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline preload="metadata" loading="lazy">
+                            <source src="https://storage.googleapis.com/htiwary-portfolio/project3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <h3>GKE Network Policy Hardening</h3>
+                    <p>Implemented fine-grained network policies using Calico on GKE to secure pod-to-pod communication and reduce attack surface.</p>
+                    <div class="tech-stack"><strong>Tech:</strong> GKE, Calico, Kubernetes, Security</div>
+                </div>
+
             </div>
         </section>
-
+        
         <!-- Skills Grid Section -->
         <section id="skills" class="container fade-in">
             <h2><i class="fas fa-code"></i> Core Skills</h2>
