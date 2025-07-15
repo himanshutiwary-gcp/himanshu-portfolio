@@ -19,9 +19,9 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
         conn = connector.connect(
             instance_connection_name,
             "pg8000",
-            user="htiwary7",
-            password="htiwarydbpassword",
-            db="postgress",
+            #user="htiwary7",
+            # password="htiwarydbpassword",
+           # db="postgress",
         )
         return conn
 
